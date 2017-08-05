@@ -1,0 +1,41 @@
+.bookshelf {
+  display: flex;
+  flex-wrap: nowrap;
+  flex-direction: column;
+  justify-content: flex-end;
+  width: 500px;
+  height: 250px;
+  padding: 2rem;
+}
+
+.shelf {
+  height: 20px;
+  width: 100%;
+  background-color: #838285;
+  box-shadow: 0 10px 30px #888888;
+}
+
+.books {
+  display: flex;
+  padding: 0 20px;
+}
+
+.book {
+  height: 150px;
+  width: 30px;
+  background-color: #b36b00;
+  border: 2px solid #6e4d2d;
+  border-radius: 2px;
+  box-shadow: none;
+  transition-property: transform, box-shadow;
+  transition-duration: 0.3s, 0.3s;
+  transition-timing-function: linear, linear;
+  z-index: 1;
+  cursor: pointer;
+
+  &:hover {
+    transform: scale(1.5);
+    box-shadow: 0 0 30px #888888;
+    z-index: 2;
+  }
+}

@@ -1,0 +1,23 @@
+.wall {
+  display: flex;
+  flex-direction: column;
+}
+
+@media (min-width: 600px) {
+  .wall {
+    & > :nth-child(1) {
+      align-self: flex-start;
+      margin-right: 50px;
+    }
+
+    & > :nth-child(2) {
+      align-self: flex-end;
+      margin-right: 20px;
+    }
+
+    & > :nth-child(3) {
+      align-self: center;
+      margin-right: 50px;
+    }
+  }
+}
