@@ -1,21 +1,19 @@
 import React from "react"
-import PropTypes from "prop-types"
+// import PropTypes from "prop-types"
+import AboutMe from "./about-me"
+import styles from "./home.css"
 
-const Home = ({buttonClicked, onButtonClick}) => {
-  const buttonState = buttonClicked ? "clicked" : "not clicked"
+export default function Home() {
   return (
-    <div>
-      The button is {buttonState}
-      <br />
-      <button onClick={() => onButtonClick("button-id")}>
-        The button</button>
+    <div className={styles.wall}>
+      <div className={styles.bookshelf}>
+        <div className={styles.book}></div>
+        <div className={styles.shelf}></div>
+      </div>
+
+      <AboutMe />
     </div>
   )
 }
 
-Home.propTypes = {
-  buttonClicked: PropTypes.bool.isRequired,
-  onButtonClick: PropTypes.func.isRequired,
-}
-
-export default Home
+Home.propTypes = {}

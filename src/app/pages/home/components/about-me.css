@@ -1,0 +1,86 @@
+.aboutMe {
+  position: fixed;
+  bottom: -185px;
+  right: 16px;
+  display: flex;
+  flex-wrap: nowrap;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 150px;
+  height: 230px;
+  z-index: 2;
+  transition-property: bottom;
+  transition-duration: 0.5s;
+  transition-timing-function: linear;
+  cursor: pointer;
+
+  &:hover {
+    bottom: 0;
+
+    .aboutMeImg {
+      animation: tada 0.8s 0.8s linear;
+    }
+    .aboutMeText {
+      background: #6e4d2d;
+
+      &:after {
+        border-top-color: #6e4d2d;
+      }
+    }
+  }
+}
+
+.aboutMeImg {
+  max-height: 150px;
+  max-width: 150px;
+  height: 100%;
+  width: 100%;
+}
+
+.aboutMeText {
+	position: relative;
+	background: #9c7b5a;
+  color: #e3e6e6;
+  padding: 10px;
+	border-radius: 10px 10px 0 0;
+  text-align: center;
+  font-size: 1.6rem;
+
+  &:after {
+  	content: '';
+    font-size: 1.2rem;
+  	position: absolute;
+  	bottom: 0;
+  	left: 50%;
+  	width: 0;
+  	height: 0;
+  	border: 1.156em solid transparent;
+  	border-top-color: #9c7b5a;
+  	border-bottom: 0;
+  	border-left: 0;
+  	margin-left: -0.578em;
+  	margin-bottom: -1.156em;
+  }
+}
+
+@keyframes tada {
+  from {
+    transform: scale3d(1, 1, 1);
+  }
+
+  10%, 20% {
+    transform: scale3d(.9, .9, .9) rotate3d(0, 0, 1, -3deg);
+  }
+
+  30%, 50%, 70%, 90% {
+    transform: scale3d(1.1, 1.1, 1.1) rotate3d(0, 0, 1, 3deg);
+  }
+
+  40%, 60%, 80% {
+    transform: scale3d(1.1, 1.1, 1.1) rotate3d(0, 0, 1, -3deg);
+  }
+
+  to {
+    transform: scale3d(1, 1, 1);
+  }
+}

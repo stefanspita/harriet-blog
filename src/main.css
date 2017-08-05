@@ -21,4 +21,7 @@ body {
 
   /* Add some CSS3 stuff. */
   background-color: #e3e6e6;
+  overflow: hidden;
+  height: 100%;
+  width: 100%;
 }
