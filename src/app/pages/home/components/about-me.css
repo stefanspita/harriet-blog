@@ -22,6 +22,7 @@
     }
     .aboutMeText {
       background: #6e4d2d;
+      border-radius: 10px;
 
       &:after {
         border-top-color: #6e4d2d;
