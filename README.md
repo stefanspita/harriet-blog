@@ -1,4 +1,4 @@
-# App Skeleton
+# Harriet's blog
 
 This is usin the following:
 - rollup for building

@@ -1,5 +1,5 @@
 {
-  "name": "app-skeleton",
+  "name": "harriet-blog",
   "version": "0.0.0",
   "description": "This repo can be used as a base for creating a website",
   "main": "build/main.min.js",
@@ -13,7 +13,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git@github.com:stefanspita/app-skeleton.git"
+    "url": "git@github.com:stefanspita/harriet-blog.git"
   },
   "author": "Stefan Spita",
   "homepage": "https://github.com/jlengstorf/learn-rollup#readme",
