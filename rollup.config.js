@@ -9,12 +9,14 @@ import uglify from "rollup-plugin-uglify"
 import postcss from "rollup-plugin-postcss"
 import livereload from "rollup-plugin-livereload"
 import serve from "rollup-plugin-serve"
+import image from "rollup-plugin-img"
 
 // PostCSS plugins
 import simplevars from "postcss-simple-vars"
 import nested from "postcss-nested"
 import cssnext from "postcss-cssnext"
-import cssnano from "cssnano"
+import postcssModules from "postcss-modules"
+const cssExportMap = {}
 
 export default {
   entry: "src/main.js",
@@ -27,9 +29,16 @@ export default {
       plugins: [
         simplevars(),
         nested(),
-        cssnext({warnForDuplicates: false}),
-        cssnano(),
+        cssnext(),
+        postcssModules({
+          getJSON (id, exportTokens) {
+            cssExportMap[id] = exportTokens
+          },
+        }),
       ],
+      getExport (id) {
+        return cssExportMap[id]
+      },
     }),
     commonjs({
       include: ["node_modules/**"],
@@ -53,12 +62,16 @@ export default {
     }),
     eslint({
       exclude: [
-        "src/main.css",
+        "src/**/*.css",
+        "src/**/*.png",
+        "src/**/*.jpg",
+        "src/**/*.svg",
       ],
     }),
     babel({
       exclude: "node_modules/**",
     }),
+    image({limit: 1000000}),
     replace({
       "process.env.NODE_ENV": JSON.stringify(process.env.NODE_ENV || "development"),
     }),
