@@ -20,8 +20,9 @@ body {
   font-family: $font-family;
 
   /* Add some CSS3 stuff. */
-  background-color: #e3e6e6;
-  overflow: hidden;
   height: 100%;
   width: 100%;
+
+  background-image: url("assets/background.jpg");
+  background-repeat: repeat;
 }

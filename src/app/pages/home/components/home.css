@@ -1,23 +1,25 @@
 .wall {
   display: flex;
   flex-direction: column;
+  padding-top: 20px;
 }
 
-@media (min-width: 600px) {
+
+@media (min-width: 800px) {
   .wall {
     & > :nth-child(1) {
       align-self: flex-start;
-      margin-right: 50px;
+      margin-left: 80px;
     }
 
     & > :nth-child(2) {
       align-self: flex-end;
-      margin-right: 20px;
+      margin-right: 50px;
     }
 
     & > :nth-child(3) {
       align-self: center;
-      margin-right: 50px;
+      margin-right: 80px;
     }
   }
 }
