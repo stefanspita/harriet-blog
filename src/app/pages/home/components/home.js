@@ -1,19 +1,27 @@
 import React from "react"
-// import PropTypes from "prop-types"
+import R from "ramda"
+import PropTypes from "prop-types"
 import AboutMe from "./about-me"
 import Bookshelf from "./bookshelf"
 import styles from "./home.css"
 
-export default function Home() {
+function renderBookshelf(shelfProps, index) {
+  return (<Bookshelf
+    key={index}
+    {...shelfProps}
+  />)
+}
+
+export default function Home({shelves}) {
   return (
     <div className={styles.wall}>
-      <Bookshelf />
-      <Bookshelf />
-      <Bookshelf />
+      {R.addIndex(R.map)(renderBookshelf, shelves)}
 
       <AboutMe />
     </div>
   )
 }
 
-Home.propTypes = {}
+Home.propTypes = {
+  shelves: PropTypes.array.isRequired,
+}

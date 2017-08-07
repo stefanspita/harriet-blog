@@ -9,14 +9,17 @@ import theLuminariesFront from "./assets/the-luminaries-front.jpg"
 import theLuminariesRoot from "./assets/the-luminaries-root.jpg"
 
 export default [{
+  id: 1,
   title: "Dawn of the dumb",
   pictures: {back: dawnOfTheDumbBack, front: dawnOfTheDumbFront, root: dawnOfTheDumbRoot},
 },
 {
+  id: 2,
   title: "Out super adventure",
   pictures: {back: ourSuperAdventureBack, front: ourSuperAdventureFront, root: ourSuperAdventureRoot},
 },
 {
+  id: 3,
   title: "The luminaries",
   pictures: {back: theLuminariesBack, front: theLuminariesFront, root: theLuminariesRoot},
 }]
