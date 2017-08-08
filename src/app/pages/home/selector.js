@@ -9,7 +9,7 @@ const assignBooksToShelfSlot = R.curry((books, slot) => {
 })
 
 const assignBooksToShelf = R.curry((books, shelf) => {
-  return R.assoc("slots", R.map(assignBooksToShelfSlot, shelf.slots), shelf)
+  return R.assoc("slots", R.map(assignBooksToShelfSlot(books), shelf.slots), shelf)
 })
 
 export default function selector(state) {
