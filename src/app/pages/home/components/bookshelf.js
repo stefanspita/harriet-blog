@@ -2,11 +2,11 @@ import React from "react"
 import PropTypes from "prop-types"
 import styles from "./bookshelf.css"
 
-export default function Bookshelf({children}) {
+export default function Bookshelf(props) {
   return (
     <div className={styles.bookshelf}>
       <div className={styles.books}>
-        {children}
+        {props.children}
       </div>
       <div className={styles.shelf}></div>
     </div>
@@ -14,5 +14,8 @@ export default function Bookshelf({children}) {
 }
 
 Bookshelf.propTypes = {
-  children: PropTypes.array,
+  children: PropTypes.oneOfType([
+    PropTypes.object,
+    PropTypes.array,
+  ]),
 }

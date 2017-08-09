@@ -6,28 +6,25 @@ import Bookshelf from "./bookshelf"
 import Book from "./book"
 import styles from "./home.css"
 
-function renderShelfSlot(shelfSlotProps, index) {
-  if (shelfSlotProps.type === "book") {
-    return (<Book
-      key={index}
-      {...shelfSlotProps}
-    />)
-  }
-  return null
-}
+const getAndRenderBook = R.curry((books, id) => {
+  return (<Book
+    key={id}
+    {...books[id]}
+  />)
+})
 
-function renderBookshelf(shelfProps, index) {
-  return (<Bookshelf
-    key={index}
-  >
-    {R.addIndex(R.map)(renderShelfSlot, shelfProps.slots)}
-  </Bookshelf>)
-}
-
-export default function Home({shelves}) {
+export default function Home({books}) {
+  const renderBook = getAndRenderBook(books)
   return (
     <div className={styles.wall}>
-      {R.addIndex(R.map)(renderBookshelf, shelves)}
+      <Bookshelf title="Book reviews" key="1">
+        {renderBook("dawn-of-the-dumb")}
+        {renderBook("the-luminaries")}
+      </Bookshelf>
+
+      <Bookshelf title="Coming next" key="2">
+        {renderBook("our-super-adventure")}
+      </Bookshelf>
 
       <AboutMe />
     </div>
@@ -35,5 +32,5 @@ export default function Home({shelves}) {
 }
 
 Home.propTypes = {
-  shelves: PropTypes.array.isRequired,
+  books: PropTypes.object.isRequired,
 }

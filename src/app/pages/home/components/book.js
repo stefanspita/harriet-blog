@@ -2,12 +2,14 @@ import React from "react"
 import PropTypes from "prop-types"
 import styles from "./book.css"
 
-export default function Book({bookDetails}) {
+export default function Book({pictures}) {
   return (
-    <img className={styles.book} src={bookDetails.pictures.root} />
+    <img className={styles.book} src={pictures.root} />
   )
 }
 
 Book.propTypes = {
-  bookDetails: PropTypes.object.isRequired,
+  id: PropTypes.number.isRequired,
+  title: PropTypes.string.isRequired,
+  pictures: PropTypes.object.isRequired,
 }
