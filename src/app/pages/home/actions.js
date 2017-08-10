@@ -1,16 +1,16 @@
 import consts from "../../../constants"
 
-function onButtonClick(payload) {
+function openBook(id) {
   return {
-    type: consts.CLICK_BUTTON,
-    payload,
+    type: consts.OPEN_BOOK,
+    payload: {id},
   }
 }
 
 export default function actions(dispatch) {
   return {
-    onButtonClick: (id) => {
-      dispatch(onButtonClick(id))
+    openBook: (id) => {
+      dispatch(openBook(id))
     },
   }
 }

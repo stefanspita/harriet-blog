@@ -8,11 +8,10 @@ const initialState = {
 
 export default function reducer(state = initialState, action) {
   switch (action.type) {
-  case consts.CLICK_BUTTON:
-    return R.merge(
-      state,
-      {buttonClicked: true}
-    )
+  case consts.OPEN_BOOK: {
+    const {id} = action.payload
+    return R.assocPath(["books", id, "open"], true, state)
+  }
   default:
     return state
   }

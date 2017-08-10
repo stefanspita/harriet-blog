@@ -1,3 +1,3 @@
 export default {
-  CLICK_BUTTON: "CLICK_BUTTON",
+  OPEN_BOOK: "OPEN_BOOK",
 }
