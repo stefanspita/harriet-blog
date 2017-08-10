@@ -24,8 +24,9 @@ export default function Home({books}) {
   return (
     <div className={styles.wall}>
       <Bookshelf title="Book reviews" key="1">
-        {renderDecoration("hangingCat")}
+        {renderDecoration("cat2")}
         {renderBook("dawn-of-the-dumb")}
+        {renderDecoration("hangingCat")}
         {renderBook("the-luminaries")}
         {renderBook("our-super-adventure")}
       </Bookshelf>
