@@ -10,17 +10,14 @@ import theLuminariesRoot from "./assets/the-luminaries-root.jpg"
 
 const books = {
   "dawn-of-the-dumb": {
-    id: 1,
     title: "Dawn of the dumb",
     pictures: {back: dawnOfTheDumbBack, front: dawnOfTheDumbFront, root: dawnOfTheDumbRoot},
   },
   "our-super-adventure": {
-    id: 2,
     title: "Out super adventure",
     pictures: {back: ourSuperAdventureBack, front: ourSuperAdventureFront, root: ourSuperAdventureRoot},
   },
   "the-luminaries": {
-    id: 3,
     title: "The luminaries",
     pictures: {back: theLuminariesBack, front: theLuminariesFront, root: theLuminariesRoot},
   },

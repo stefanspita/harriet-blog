@@ -10,7 +10,7 @@ import styles from "./home.css"
 const getAndRenderBook = R.curry((books, id) => {
   const book = books[id]
   return (<Book
-    key={book.id}
+    key={id}
     {...book}
   />)
 })
