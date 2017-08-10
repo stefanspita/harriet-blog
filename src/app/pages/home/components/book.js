@@ -4,14 +4,12 @@ import styles from "./book.css"
 
 export default function Book({openBook, pictures}) {
   return (
-    <span className={styles.bookWrapper}>
-      <span className={styles.spine}>
-        <img onClick={() => openBook()} className={styles.book} src={pictures.root} />
-      </span>
-      <span className={styles.cover}>
-
-      </span>
-    </span>
+    <div className={styles.bookWrapper}>
+      <div className={styles.book}>
+        <img onClick={() => openBook()} className={styles.spine} src={pictures.root} />
+        <img onClick={() => openBook()} className={styles.frontCover} src={pictures.front} />
+      </div>
+    </div>
   )
 }
 

@@ -25,7 +25,6 @@ export default function Home({openBook, books}) {
   return (
     <div className={styles.wall}>
       <Bookshelf title="Book reviews" key="1">
-        {renderDecoration("cat2")}
         {renderBook("dawn-of-the-dumb")}
         {renderDecoration("hangingCat")}
         {renderBook("the-luminaries")}
@@ -35,7 +34,6 @@ export default function Home({openBook, books}) {
       <Bookshelf title="Coming next" key="2">
         {renderBook("dawn-of-the-dumb")}
         {renderBook("our-super-adventure")}
-        {renderDecoration("cat1")}
       </Bookshelf>
 
       <AboutMe />
