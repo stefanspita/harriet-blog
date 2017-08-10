@@ -4,7 +4,14 @@ import styles from "./book.css"
 
 export default function Book({pictures}) {
   return (
-    <img className={styles.book} src={pictures.root} />
+    <span className={styles.bookWrapper}>
+      <span className={styles.spine}>
+        <img className={styles.book} src={pictures.root} />
+      </span>
+      <span className={styles.cover}>
+        
+      </span>
+    </span>
   )
 }
 
