@@ -21,7 +21,6 @@
 .spine {
   height: 250px;
   width: 60px;
-  position: absolute;
   border: 1px solid #333333;
   border-radius: 2px;
   cursor: pointer;
@@ -33,11 +32,13 @@
 
 .frontCover {
   height: 250px;
-  width: 250px;
+  width: 200px;
   position: absolute;
-  transform: rotateY(90deg) translate3d(125px, 0, -67px);
+  transform: rotateY(90deg) translate3d(100px, 0, -100px);
   transition-property: box-shadow;
   transition-duration: 0.2s;
   transition-timing-function: linear;
   z-index: 1;
+  border: 1px solid #333333;
+  border-radius: 2px;
 }
