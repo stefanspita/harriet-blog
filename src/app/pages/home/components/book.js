@@ -4,11 +4,9 @@ import styles from "./book.css"
 
 export default function Book({openBook, pictures}) {
   return (
-    <div className={styles.bookWrapper}>
-      <div className={styles.book}>
-        <img onClick={() => openBook()} className={styles.spine} src={pictures.root} />
-        <img onClick={() => openBook()} className={styles.frontCover} src={pictures.front} />
-      </div>
+    <div className={styles.book}>
+      <img onClick={() => openBook()} className={styles.spine} src={pictures.root} />
+      <img onClick={() => openBook()} className={styles.frontCover} src={pictures.front} />
     </div>
   )
 }
