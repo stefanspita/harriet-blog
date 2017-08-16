@@ -16,6 +16,10 @@ import simplevars from "postcss-simple-vars"
 import nested from "postcss-nested"
 import cssnext from "postcss-cssnext"
 import postcssModules from "postcss-modules"
+import postcssAssets from "postcss-assets"
+import postcssFunctions from "postcss-functions"
+import cssFunctions from "./postcss-functions/index"
+
 const cssExportMap = {}
 
 export default {
@@ -35,6 +39,8 @@ export default {
             cssExportMap[id] = exportTokens
           },
         }),
+        postcssFunctions(cssFunctions),
+        postcssAssets({loadPaths: ["images/"]}),
       ],
       getExport (id) {
         return cssExportMap[id]
