@@ -1,16 +1,16 @@
 .book {
   position: relative;
   transform-style: preserve-3d;
-  perspective: 4000px;
   transition-property: transform;
   transition-duration: 0.2s;
   transition-timing-function: linear;
 
   &:hover {
-    transform: rotateY(-78deg);
+    /*transform: rotateY(-78deg);*/
+    transform: scale(1.5);
     z-index: 3;
 
-    .spine, .frontCover {
+    .spine {
       box-shadow: 0 10px 30px #333333;
     }
   }

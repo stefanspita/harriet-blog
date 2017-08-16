@@ -23,19 +23,21 @@ function renderDecoration(pictureId) {
 export default function Home({openBook, books}) {
   const renderBook = getAndRenderBook(openBook, books)
   return (
-    <div className={styles.wall}>
-      <Bookshelf title="Book reviews" key="1">
-        {renderBook("dawn-of-the-dumb")}
-        {renderDecoration("hangingCat")}
-        {renderBook("the-luminaries")}
-        {renderBook("our-super-adventure")}
-      </Bookshelf>
+    <div>
+      <div className={styles.wall}>
+        <Bookshelf title="Book reviews" key="1">
+          {renderBook("dawn-of-the-dumb")}
+          {renderDecoration("hangingCat")}
+          {renderBook("the-luminaries")}
+          {renderBook("our-super-adventure")}
+        </Bookshelf>
 
-      <Bookshelf title="Coming next" key="2">
-        {renderBook("dawn-of-the-dumb")}
-        {renderBook("our-super-adventure")}
-      </Bookshelf>
+        <Bookshelf title="Coming next" key="2">
+          {renderBook("dawn-of-the-dumb")}
+          {renderBook("our-super-adventure")}
+        </Bookshelf>
 
+      </div>
       <AboutMe />
     </div>
   )
