@@ -12,14 +12,17 @@ const books = {
   "dawn-of-the-dumb": {
     title: "Dawn of the dumb",
     pictures: {back: dawnOfTheDumbBack, front: dawnOfTheDumbFront, root: dawnOfTheDumbRoot},
+    size: {spineWidth: 45, height: 250, coverWidth: 180},
   },
   "our-super-adventure": {
     title: "Out super adventure",
     pictures: {back: ourSuperAdventureBack, front: ourSuperAdventureFront, root: ourSuperAdventureRoot},
+    size: {spineWidth: 50, height: 180, coverWidth: 180},
   },
   "the-luminaries": {
     title: "The luminaries",
     pictures: {back: theLuminariesBack, front: theLuminariesFront, root: theLuminariesRoot},
+    size: {spineWidth: 60, height: 220, coverWidth: 180},
   },
 }
 
