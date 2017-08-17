@@ -6,13 +6,26 @@
   transition-timing-function: linear;
 
   &:hover {
-    /*transform: rotateY(-78deg);*/
     transform: scale(1.5);
     z-index: 3;
 
     .spine {
       box-shadow: 0 10px 30px #333333;
     }
+  }
+}
+
+.openedBook {
+  position: fixed;
+  transform-style: preserve-3d;
+  transition-property: transform;
+  transition-duration: 0.4s;
+  transition-timing-function: linear;
+  transform: rotateY(-90deg) scale3d(2, 2, 2);
+  z-index: 4;
+
+  .frontCover {
+    box-shadow: 0 10px 30px #333333;
   }
 }
 

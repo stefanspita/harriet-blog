@@ -7,11 +7,10 @@ import Book from "./book"
 import Decoration from "./decoration"
 import styles from "./home.css"
 
-const getAndRenderBook = R.curry((openBook, books, id) => {
+const getAndRenderBook = R.curry((books, id) => {
   const book = books[id]
   return (<Book
     key={id}
-    openBook={R.partial(openBook, [id])}
     {...book}
   />)
 })
@@ -20,8 +19,8 @@ function renderDecoration(pictureId) {
   return (<Decoration key={pictureId} pictureId={pictureId} />)
 }
 
-export default function Home({openBook, books}) {
-  const renderBook = getAndRenderBook(openBook, books)
+export default function Home({books}) {
+  const renderBook = getAndRenderBook(books)
   return (
     <div>
       <div className={styles.wall}>
@@ -45,5 +44,4 @@ export default function Home({openBook, books}) {
 
 Home.propTypes = {
   books: PropTypes.object.isRequired,
-  openBook: PropTypes.func.isRequired,
 }
