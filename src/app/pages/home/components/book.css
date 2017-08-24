@@ -6,7 +6,7 @@
   transition-timing-function: linear;
 
   &:hover {
-    transform: scale(1.5);
+    transform: scale3d(1.5, 1.5, 1.5);
     z-index: 3;
 
     .spine {
@@ -14,19 +14,26 @@
     }
   }
 }
+@keyframes openBook {
+  0% {
+    transform: scale3d(1.5, 1.5, 1.5);
+  }
+
+  40% {
+    transform: scale3d(3, 3, 3);
+  }
+  100% {
+    transform: rotateY(-90deg) scale3d(3, 3, 3);
+    top: 50%;
+    left: 25%;
+  }
+}
 
 .openedBook {
   position: fixed;
-  transform-style: preserve-3d;
-  transition-property: transform;
-  transition-duration: 0.4s;
-  transition-timing-function: linear;
-  transform: rotateY(-90deg) scale3d(2, 2, 2);
   z-index: 4;
-
-  .frontCover {
-    box-shadow: 0 10px 30px #333333;
-  }
+  animation: openBook 5s linear forwards;
+  transform-style: preserve-3d;
 }
 
 .spine {

@@ -1,11 +1,12 @@
 /* eslint-disable react/no-find-dom-node */
 import React from "react"
+import R from "ramda"
 import PropTypes from "prop-types"
 import ReactDOM from "react-dom"
 import styles from "./book.css"
 
-function getBookStyle({spineWidth, height}, opened, {top, left}) {
-  if (opened) return {height, width: spineWidth, top, left}
+function getBookPositionAndSize(opened, {spineWidth, height}, {top, left}) {
+  if (opened) return {top, left}
   return {height, width: spineWidth}
 }
 
@@ -24,27 +25,30 @@ function getCoverStyle({coverWidth, height}) {
 export default class Book extends React.Component {
   constructor(props) {
     super(props)
-    this.state = {opened: false, elementPosition: {}}
+    this.state = {opened: false, position: {}}
     this.openBook = this.openBook.bind(this)
   }
 
   componentDidMount() {
-    const elementPosition = ReactDOM.findDOMNode(this).getBoundingClientRect()
-    this.setState({elementPosition})
+    const element = ReactDOM.findDOMNode(this).getBoundingClientRect()
+    this.setState({position: R.pick(["top", "left"], element)})
   }
 
   openBook() {
-    this.setState({opened: true})
+    const position = ReactDOM.findDOMNode(this).getBoundingClientRect()
+    this.setState({
+      opened: true,
+      position,
+    })
   }
 
   render() {
-    const {size, pictures} = this.props
-    const {opened, elementPosition} = this.state
+    const {pictures, size} = this.props
+    const {opened, position} = this.state
     const bookClass = opened ? styles.openedBook : styles.book
-    const booksStyle = getBookStyle(size, opened, elementPosition)
 
     return (
-      <div style={booksStyle} className={bookClass}>
+      <div style={getBookPositionAndSize(opened, size, position)} className={bookClass}>
         <img
           onClick={() => this.openBook()}
           style={getSpineStyle(size)}
