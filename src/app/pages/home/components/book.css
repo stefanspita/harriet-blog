@@ -1,5 +1,17 @@
-.book {
+.bookWrapper {
   position: relative;
+}
+
+.openedBookWrapper {
+  position: fixed;
+  z-index: 4;
+  transform-style: preserve-3d;
+  transition: top 0.3s linear,
+    left 0.3s linear,
+    margin 0.3s linear;
+}
+
+.book {
   transform-style: preserve-3d;
   transition-property: transform;
   transition-duration: 0.2s;
@@ -14,26 +26,17 @@
     }
   }
 }
-@keyframes openBook {
-  0% {
-    transform: scale3d(1.5, 1.5, 1.5);
-  }
 
-  40% {
-    transform: scale3d(3, 3, 3);
-  }
-  100% {
-    transform: rotateY(-90deg) scale3d(3, 3, 3);
-    top: 50%;
-    left: 25%;
-  }
+.openedScaleBook {
+  transform-style: preserve-3d;
+  transition: transform 0.4s linear;
+  transform: scale3d(3, 3, 3);
 }
 
-.openedBook {
-  position: fixed;
-  z-index: 4;
-  animation: openBook 5s linear forwards;
+.openedRotateBook {
   transform-style: preserve-3d;
+  transition: transform 0.2s linear 0.4s;
+  transform: rotateY(-90deg);
 }
 
 .spine {

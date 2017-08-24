@@ -5,7 +5,11 @@ import PropTypes from "prop-types"
 import ReactDOM from "react-dom"
 import styles from "./book.css"
 
-function getBookPositionAndSize(opened, {spineWidth, height}, {top, left}) {
+function getBookPositionAndSize(opened, animationStarted, {spineWidth, coverWidth, height}, {top, left}) {
+  if (animationStarted) return {
+    top: "50%", left: "50%",
+    margin: `-10px 0 0 -${coverWidth / 2 * 3}px`,
+  }
   if (opened) return {top, left}
   return {height, width: spineWidth}
 }
@@ -25,7 +29,7 @@ function getCoverStyle({coverWidth, height}) {
 export default class Book extends React.Component {
   constructor(props) {
     super(props)
-    this.state = {opened: false, position: {}}
+    this.state = {opened: false, animationStarted: false, position: {}}
     this.openBook = this.openBook.bind(this)
   }
 
@@ -35,32 +39,38 @@ export default class Book extends React.Component {
   }
 
   openBook() {
-    const position = ReactDOM.findDOMNode(this).getBoundingClientRect()
-    this.setState({
-      opened: true,
-      position,
-    })
+    this.setState({opened: true})
+    setTimeout(() => {
+      this.setState({animationStarted: true})
+    }, 600)
   }
 
   render() {
     const {pictures, size} = this.props
-    const {opened, position} = this.state
-    const bookClass = opened ? styles.openedBook : styles.book
+    const {opened, animationStarted, position} = this.state
+    const bookWrapperClass = opened ? styles.openedBookWrapper : styles.bookWrapper
+    const bookClass = opened ? styles.openedScaleBook : styles.book
+    const rotateClass = opened ? styles.openedRotateBook : null
+    const bookWrapperStyle = getBookPositionAndSize(opened, animationStarted, size, position)
 
     return (
-      <div style={getBookPositionAndSize(opened, size, position)} className={bookClass}>
-        <img
-          onClick={() => this.openBook()}
-          style={getSpineStyle(size)}
-          className={styles.spine}
-          src={pictures.root}
-        />
-        <img
-          onClick={() => this.openBook()}
-          style={getCoverStyle(size)}
-          className={styles.frontCover}
-          src={pictures.front}
-        />
+      <div style={bookWrapperStyle} className={bookWrapperClass}>
+        <div className={bookClass}>
+          <div className={rotateClass}>
+            <img
+              onClick={() => this.openBook()}
+              style={getSpineStyle(size)}
+              className={styles.spine}
+              src={pictures.root}
+            />
+            <img
+              onClick={() => this.openBook()}
+              style={getCoverStyle(size)}
+              className={styles.frontCover}
+              src={pictures.front}
+            />
+          </div>
+        </div>
       </div>
     )
   }
