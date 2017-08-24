@@ -19,10 +19,9 @@ import postcssModules from "postcss-modules"
 const cssExportMap = {}
 
 export default {
-  entry: "src/main.js",
-  dest: "build/main.min.js",
-  format: "iife",
-  sourceMap: "inline",
+  input: "src/main.js",
+  output: {file: "build/main.min.js", format: "iife"},
+  sourcemap: "inline",
   plugins: [
     postcss({
       extensions: [".css"],
