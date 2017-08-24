@@ -6,6 +6,7 @@
   width: 600px;
   height: 280px;
   margin: 3rem 0;
+  position: relative;
 }
 
 .shelf {
