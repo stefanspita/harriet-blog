@@ -42,7 +42,7 @@ export default class Book extends React.Component {
     this.setState({opened: true})
     setTimeout(() => {
       this.setState({animationStarted: true})
-    }, 600)
+    }, 400)
   }
 
   render() {

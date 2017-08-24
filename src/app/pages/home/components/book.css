@@ -29,13 +29,13 @@
 
 .openedScaleBook {
   transform-style: preserve-3d;
-  transition: transform 0.4s linear;
+  transition: transform 0.7s linear;
   transform: scale3d(3, 3, 3);
 }
 
 .openedRotateBook {
   transform-style: preserve-3d;
-  transition: transform 0.2s linear 0.4s;
+  transition: transform 0.3s linear 0.4s;
   transform: rotateY(-90deg);
 }
 
