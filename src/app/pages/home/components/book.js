@@ -35,7 +35,11 @@ export default class Book extends React.Component {
   }
 
   updateScreenResize() {
-    this.setState({screen: {height: window.innerHeight, width: window.innerWidth}})
+    const element = ReactDOM.findDOMNode(this).getBoundingClientRect()
+    this.setState({
+      screen: {height: window.innerHeight, width: window.innerWidth},
+      position: R.pick(["top", "left"], element),
+    })
   }
 
   componentDidMount() {

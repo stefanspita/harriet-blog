@@ -43,17 +43,13 @@
   border: 1px solid #333333;
   border-radius: 2px;
   cursor: pointer;
-  transition-property: box-shadow;
-  transition-duration: 0.2s;
-  transition-timing-function: linear;
+  transition: box-shadow 0.2s linear;
   z-index: 2;
 }
 
 .frontCover {
   position: absolute;
-  transition-property: box-shadow;
-  transition-duration: 0.2s;
-  transition-timing-function: linear;
+  transition: box-shadow 0.2s linear;
   z-index: 1;
   border: 1px solid #333333;
   border-radius: 2px;
