@@ -7,8 +7,8 @@ import styles from "./book.css"
 
 function getBookPositionAndSize(opened, animationStarted, {spineWidth, coverWidth, height}, {top, left}) {
   if (animationStarted) return {
-    top: "50%", left: "50%",
-    margin: `-10px 0 0 -${coverWidth / 2 * 3}px`,
+    top: `${window.innerHeight / 2}px`, left: `${window.innerWidth / 2}px`,
+    margin: `-${height / 2}px 0 0 -${coverWidth / 2 * 3 + spineWidth / 2}px`,
   }
   if (opened) return {top, left}
   return {height, width: spineWidth}
@@ -46,12 +46,12 @@ export default class Book extends React.Component {
   }
 
   render() {
-    const {pictures, size} = this.props
+    const {pictures, size: bookSize} = this.props
     const {opened, animationStarted, position} = this.state
     const bookWrapperClass = opened ? styles.openedBookWrapper : styles.bookWrapper
     const bookClass = opened ? styles.openedScaleBook : styles.book
     const rotateClass = opened ? styles.openedRotateBook : null
-    const bookWrapperStyle = getBookPositionAndSize(opened, animationStarted, size, position)
+    const bookWrapperStyle = getBookPositionAndSize(opened, animationStarted, bookSize, position)
 
     return (
       <div style={bookWrapperStyle} className={bookWrapperClass}>
@@ -59,13 +59,13 @@ export default class Book extends React.Component {
           <div className={rotateClass}>
             <img
               onClick={() => this.openBook()}
-              style={getSpineStyle(size)}
+              style={getSpineStyle(bookSize)}
               className={styles.spine}
               src={pictures.root}
             />
             <img
               onClick={() => this.openBook()}
-              style={getCoverStyle(size)}
+              style={getCoverStyle(bookSize)}
               className={styles.frontCover}
               src={pictures.front}
             />
