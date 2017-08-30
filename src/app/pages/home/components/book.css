@@ -1,10 +1,10 @@
 .book {
-  position: relative;
+  position: fixed;
   transform-style: preserve-3d;
   transition: transform 0.2s linear;
 
   &:hover {
-    transform: translateZ(200px);
+    transform: translate3d(0, 0, 200px);
 
     .spine {
       box-shadow: 0 10px 30px #333333;
@@ -16,7 +16,6 @@
   position: fixed;
   transform-style: preserve-3d;
   transition: transform 0.7s linear;
-  transform: translate3d(350px, 250px, 3000px);
 }
 
 .rotateBook {

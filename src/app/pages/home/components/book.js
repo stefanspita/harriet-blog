@@ -9,14 +9,12 @@ function getBookSize({height, spineWidth}) {
   return {height, width: spineWidth}
 }
 
-// function getBookPositionAndSize(opened, animationStarted, {spineWidth, coverWidth, height}, bookPosition, screen) {
-//   if (animationStarted) return {
-//     top: `${screen.height / 2}px`, left: `${screen.width / 2}px`,
-//     margin: `-${height / 2}px 0 0 -${coverWidth / 2 * 3 + spineWidth / 2}px`,
-//   }
-//   if (opened) return bookPosition
-//   return {height, width: spineWidth}
-// }
+function getBookPosition(opened, animationStarted, bookSize, bookPosition, screen) {
+  const xCoord = screen.width / 2 - bookSize.coverWidth / 2 - bookSize.spineWidth / 2 - bookPosition.left
+  const yCoord = screen.height / 2 - bookSize.height / 2 - bookPosition.top
+  if (opened) return {transform: `translate3d(${xCoord}px, ${yCoord}px, 3000px)`}
+  return {}
+}
 
 function getSpineStyle({spineWidth, height}) {
   return {height, width: spineWidth}
@@ -68,15 +66,14 @@ export default class Book extends React.Component {
 
   render() {
     const {pictures, size} = this.props
-    // const {opened, animationStarted, position, screen} = this.state
-    const {opened} = this.state
+    const {opened, animationStarted, position, screen} = this.state
     const bookClass = opened ? styles.openedBook : styles.book
     const rotateClass = opened ? styles.openedRotateBook : styles.rotateBook
-    // const bookStyle = getBookPositionAndSize(opened, animationStarted, size, position, screen)
+    const bookPosition = getBookPosition(opened, animationStarted, size, position, screen)
     const bookSize = getBookSize(size)
 
     return (
-      <div style={bookSize} className={bookClass}>
+      <div style={R.merge(bookSize, bookPosition)} className={bookClass}>
         <div className={rotateClass}>
           <img
             onClick={() => this.openBook()}

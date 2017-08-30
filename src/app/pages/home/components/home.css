@@ -2,6 +2,9 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  height: 100%;
+  width: 100%;
+  position: fixed;
   padding-top: 20px;
   perspective: 5000px;
   transform-style: preserve-3d;
