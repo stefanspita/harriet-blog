@@ -4,8 +4,8 @@
   align-items: center;
   padding-top: 20px;
   perspective: 5000px;
+  transform-style: preserve-3d;
 }
-
 
 @media (min-width: 800px) {
   .wall {
@@ -25,4 +25,8 @@
       margin-right: 10%;
     }
   }
+}
+
+.wall * {
+  transform-style: preserve-3d;
 }

@@ -5,14 +5,18 @@ import PropTypes from "prop-types"
 import ReactDOM from "react-dom"
 import styles from "./book.css"
 
-function getBookPositionAndSize(opened, animationStarted, {spineWidth, coverWidth, height}, bookPosition, screen) {
-  if (animationStarted) return {
-    top: `${screen.height / 2}px`, left: `${screen.width / 2}px`,
-    margin: `-${height / 2}px 0 0 -${coverWidth / 2 * 3 + spineWidth / 2}px`,
-  }
-  if (opened) return bookPosition
+function getBookSize({height, spineWidth}) {
   return {height, width: spineWidth}
 }
+
+// function getBookPositionAndSize(opened, animationStarted, {spineWidth, coverWidth, height}, bookPosition, screen) {
+//   if (animationStarted) return {
+//     top: `${screen.height / 2}px`, left: `${screen.width / 2}px`,
+//     margin: `-${height / 2}px 0 0 -${coverWidth / 2 * 3 + spineWidth / 2}px`,
+//   }
+//   if (opened) return bookPosition
+//   return {height, width: spineWidth}
+// }
 
 function getSpineStyle({spineWidth, height}) {
   return {height, width: spineWidth}
@@ -29,7 +33,7 @@ function getCoverStyle({coverWidth, height}) {
 export default class Book extends React.Component {
   constructor(props) {
     super(props)
-    this.state = {opened: false, animationStarted: false, position: {}, screen: {}}
+    this.state = {opened: props.open, animationStarted: false, position: {}, screen: {}}
     this.openBook = this.openBook.bind(this)
     this.updateScreenResize = this.updateScreenResize.bind(this)
   }
@@ -57,33 +61,35 @@ export default class Book extends React.Component {
     setTimeout(() => {
       this.setState({animationStarted: true})
     }, 400)
+    setTimeout(() => {
+      this.props.openBook()
+    }, 700)
   }
 
   render() {
-    const {pictures, size: bookSize} = this.props
-    const {opened, animationStarted, position, screen} = this.state
-    const bookWrapperClass = opened ? styles.openedBookWrapper : styles.bookWrapper
-    const bookClass = opened ? styles.openedScaleBook : styles.book
-    const rotateClass = opened ? styles.openedRotateBook : null
-    const bookWrapperStyle = getBookPositionAndSize(opened, animationStarted, bookSize, position, screen)
+    const {pictures, size} = this.props
+    // const {opened, animationStarted, position, screen} = this.state
+    const {opened} = this.state
+    const bookClass = opened ? styles.openedBook : styles.book
+    const rotateClass = opened ? styles.openedRotateBook : styles.rotateBook
+    // const bookStyle = getBookPositionAndSize(opened, animationStarted, size, position, screen)
+    const bookSize = getBookSize(size)
 
     return (
-      <div style={bookWrapperStyle} className={bookWrapperClass}>
-        <div className={bookClass}>
-          <div className={rotateClass}>
-            <img
-              onClick={() => this.openBook()}
-              style={getSpineStyle(bookSize)}
-              className={styles.spine}
-              src={pictures.root}
-            />
-            <img
-              onClick={() => this.openBook()}
-              style={getCoverStyle(bookSize)}
-              className={styles.frontCover}
-              src={pictures.front}
-            />
-          </div>
+      <div style={bookSize} className={bookClass}>
+        <div className={rotateClass}>
+          <img
+            onClick={() => this.openBook()}
+            style={getSpineStyle(size)}
+            className={styles.spine}
+            src={pictures.root}
+          />
+          <img
+            onClick={() => this.openBook()}
+            style={getCoverStyle(size)}
+            className={styles.frontCover}
+            src={pictures.front}
+          />
         </div>
       </div>
     )
@@ -95,4 +101,6 @@ Book.propTypes = {
   title: PropTypes.string.isRequired,
   pictures: PropTypes.object.isRequired,
   size: PropTypes.object.isRequired,
+  openBook: PropTypes.func.isRequired,
+  open: PropTypes.bool,
 }
