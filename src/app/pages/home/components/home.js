@@ -5,7 +5,7 @@ import PropTypes from "prop-types"
 import AboutMe from "./about-me"
 import Bookshelf from "./bookshelf"
 import Book from "./book"
-// import Decoration from "./decoration"
+import Decoration from "./decoration"
 import styles from "./home.css"
 
 const getAndRenderBook = R.curry((openBook, books, id) => {
@@ -17,9 +17,9 @@ const getAndRenderBook = R.curry((openBook, books, id) => {
   />)
 })
 
-// function renderDecoration(pictureId) {
-//   return (<Decoration key={pictureId} pictureId={pictureId} />)
-// }
+function renderDecoration(pictureId) {
+  return (<Decoration key={pictureId} pictureId={pictureId} />)
+}
 
 export default function Home({books, openBook}) { // , bookIsOpen}) {
   const renderBook = getAndRenderBook(openBook, books)
@@ -34,8 +34,11 @@ export default function Home({books, openBook}) { // , bookIsOpen}) {
         </Bookshelf>
 
         <Bookshelf title="Coming next" key="2">
+          {renderDecoration("cat2")}
+          {renderDecoration("hangingCat")}
           {renderBook("dawn-of-the-dumb")}
           {renderBook("our-super-adventure")}
+          {renderDecoration("cat1")}
         </Bookshelf>
 
       </div>

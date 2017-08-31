@@ -3,6 +3,7 @@
   max-height: 230px;
   width: auto;
   height: auto;
+  transform-style: preserve-3d;
 }
 
 .cat1, .cat2 {
@@ -11,16 +12,14 @@
 
 .hangingCat {
   position: absolute;
-  top: 95%;
-  max-height: 200px;
+  transform: translate3d(0, 200px, 1px);
+  height: 200px;
   opacity: 1;
-  transition-property: opacity;
-  transition-duration: 0.5s;
-  transition-timing-function: linear;
+  transition: opacity 0.5s linear;
 }
 
-@media (max-width: 800px) {
+/*@media (max-width: 800px) {
   .hangingCat {
     opacity: 0;
   }
-}
+}*/
