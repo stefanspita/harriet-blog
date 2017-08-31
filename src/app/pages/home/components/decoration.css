@@ -12,7 +12,7 @@
 
 .hangingCat {
   position: absolute;
-  transform: translate3d(0, 200px, 1px);
+  transform: translate3d(0, 199px, 1px);
   height: 200px;
   opacity: 1;
   transition: opacity 0.5s linear;
