@@ -4,6 +4,7 @@ import R from "ramda"
 import PropTypes from "prop-types"
 import ReactDOM from "react-dom"
 import styles from "./book.css"
+import theme from "../../../../theme"
 
 function getBookSize({height, spineWidth}) {
   return {height, width: spineWidth}
@@ -12,7 +13,7 @@ function getBookSize({height, spineWidth}) {
 function getBookPosition(opened, animationStarted, bookSize, bookPosition, screen) {
   const xCoord = screen.width / 2 - bookSize.coverWidth / 2 - bookSize.spineWidth / 2 - bookPosition.left
   const yCoord = screen.height / 2 - bookSize.height / 2 - bookPosition.top
-  if (opened) return {transform: `translate3d(${xCoord}px, ${yCoord}px, 3000px)`}
+  if (opened) return {transform: `translate3d(${xCoord}px, ${yCoord}px, ${theme.OPENED_BOOK_TRANSLATE_Z}px)`}
   return {}
 }
 
