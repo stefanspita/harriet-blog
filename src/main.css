@@ -22,6 +22,7 @@ body {
   /* Add some CSS3 stuff. */
   height: 100%;
   width: 100%;
+  position: fixed;
 
   background-image: url("images/background.jpg");
   background-repeat: repeat;
