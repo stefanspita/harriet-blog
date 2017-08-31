@@ -1,9 +1,9 @@
 .book {
   transform-style: preserve-3d;
-  transition: transform 0.2s linear;
+  transition: transform 0.4s cubic-bezier(.57,.13,.49,.91);
 
   &:hover {
-    transform: translate3d(0, 0, 200px);
+    transform: translate3d(0, 0, 180px);
 
     .spine {
       box-shadow: 0 10px 30px #333333;
@@ -14,18 +14,18 @@
 .openedBook {
   position: fixed;
   transform-style: preserve-3d;
-  transition: transform 0.7s linear;
+  transition: transform 0.7s cubic-bezier(.57,.13,.49,.91);
 }
 
 .rotateBook {
   transform-style: preserve-3d;
-  transition: transform 0.3s linear 0.4s;
+  transition: transform 0.5s cubic-bezier(.57,.13,.49,.91) 0.2s;
   transform: rotateY(0deg);
 }
 
 .openedRotateBook {
   transform-style: preserve-3d;
-  transition: transform 0.3s linear 0.4s;
+  transition: transform 0.5s cubic-bezier(.57,.13,.49,.91) 0.2s;
   transform: rotateY(-90deg);
 }
 
@@ -33,12 +33,12 @@
   border: 1px solid #333333;
   border-radius: 2px;
   cursor: pointer;
-  transition: box-shadow 0.2s linear;
+  transition: box-shadow 0.2s cubic-bezier(.57,.13,.49,.91);
 }
 
 .frontCover {
   position: absolute;
-  transition: box-shadow 0.2s linear;
+  transition: box-shadow 0.2s cubic-bezier(.57,.13,.49,.91);
   border: 1px solid #333333;
   border-radius: 2px;
 }
