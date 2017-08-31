@@ -12,6 +12,11 @@ export default function reducer(state = initialState, action) {
     const {id} = action.payload
     return R.assocPath(["books", id, "open"], true, state)
   }
+
+  case consts.CLOSE_BOOK: {
+    const {id} = action.payload
+    return R.assocPath(["books", id, "open"], false, state)
+  }
   default:
     return state
   }

@@ -32,7 +32,7 @@ function getCoverStyle({coverWidth, height}) {
 export default class Book extends React.Component {
   constructor(props) {
     super(props)
-    this.state = {opened: props.open, position: {}, screen: {}}
+    this.state = {position: {}, screen: {}}
     this.openBook = this.openBook.bind(this)
     this.updateScreenResize = this.updateScreenResize.bind(this)
   }
@@ -56,18 +56,15 @@ export default class Book extends React.Component {
   }
 
   openBook() {
-    this.setState({opened: true})
-    setTimeout(() => {
-      this.props.openBook()
-    }, 700)
+    this.props.openBook()
   }
 
   render() {
-    const {pictures, size} = this.props
-    const {opened, position, screen} = this.state
-    const bookClass = opened ? styles.openedBook : styles.book
-    const rotateClass = opened ? styles.openedRotateBook : styles.rotateBook
-    const bookPosition = getBookPosition(opened, size, position, screen)
+    const {pictures, size, open} = this.props
+    const {position, screen} = this.state
+    const bookClass = open ? styles.openedBook : styles.book
+    const rotateClass = open ? styles.openedRotateBook : styles.rotateBook
+    const bookPosition = getBookPosition(open, size, position, screen)
     const bookSize = getBookSize(size)
 
     return (

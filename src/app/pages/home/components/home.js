@@ -21,7 +21,7 @@ function renderDecoration(pictureId) {
   return (<Decoration key={pictureId} pictureId={pictureId} />)
 }
 
-export default function Home({books, openBook, bookIsOpen}) {
+export default function Home({books, openBook, closeBook, openedBook}) {
   const renderBook = getAndRenderBook(openBook, books)
   return (
     <div>
@@ -40,7 +40,7 @@ export default function Home({books, openBook, bookIsOpen}) {
           {renderDecoration("cat1")}
         </Bookshelf>
 
-        <Overlay show={bookIsOpen} />
+        <Overlay show={!!openedBook} handler={() => closeBook(openedBook)} />
       </div>
       <AboutMe />
     </div>
@@ -50,5 +50,6 @@ export default function Home({books, openBook, bookIsOpen}) {
 Home.propTypes = {
   books: PropTypes.object.isRequired,
   openBook: PropTypes.func.isRequired,
-  bookIsOpen: PropTypes.bool.isRequired,
+  closeBook: PropTypes.func.isRequired,
+  openedBook: PropTypes.string,
 }

@@ -1,6 +1,7 @@
 .book {
   transform-style: preserve-3d;
-  transition: transform 0.4s cubic-bezier(.57,.13,.49,.91);
+  transition: transform 0.5s cubic-bezier(.57,.13,.49,.91);
+  transform: translate3d(0, 0, 0);
 
   &:hover {
     transform: translate3d(0, 0, 180px);
@@ -19,13 +20,13 @@
 
 .rotateBook {
   transform-style: preserve-3d;
-  transition: transform 0.5s cubic-bezier(.57,.13,.49,.91) 0.2s;
+  transition: transform 0.3s cubic-bezier(.57,.13,.49,.91);
   transform: rotateY(0deg);
 }
 
 .openedRotateBook {
   transform-style: preserve-3d;
-  transition: transform 0.5s cubic-bezier(.57,.13,.49,.91) 0.2s;
+  transition: transform 0.4s cubic-bezier(.57,.13,.49,.91) 0.3s;
   transform: rotateY(-90deg);
 }
 

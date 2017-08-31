@@ -7,10 +7,21 @@ function openBook(id) {
   }
 }
 
+function closeBook(id) {
+  return {
+    type: consts.CLOSE_BOOK,
+    payload: {id},
+  }
+}
+
 export default function actions(dispatch) {
   return {
     openBook: (id) => {
       dispatch(openBook(id))
+    },
+
+    closeBook: (id) => {
+      dispatch(closeBook(id))
     },
   }
 }
