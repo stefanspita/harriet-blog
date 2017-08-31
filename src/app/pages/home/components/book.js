@@ -74,20 +74,22 @@ export default class Book extends React.Component {
     const bookSize = getBookSize(size)
 
     return (
-      <div style={R.merge(bookSize, bookPosition)} className={bookClass}>
-        <div className={rotateClass}>
-          <img
-            onClick={() => this.openBook()}
-            style={getSpineStyle(size)}
-            className={styles.spine}
-            src={pictures.root}
-          />
-          <img
-            onClick={() => this.openBook()}
-            style={getCoverStyle(size)}
-            className={styles.frontCover}
-            src={pictures.front}
-          />
+      <div style={bookSize}>
+        <div style={bookPosition} className={bookClass}>
+          <div className={rotateClass}>
+            <img
+              onClick={() => this.openBook()}
+              style={getSpineStyle(size)}
+              className={styles.spine}
+              src={pictures.root}
+            />
+            <img
+              onClick={() => this.openBook()}
+              style={getCoverStyle(size)}
+              className={styles.frontCover}
+              src={pictures.front}
+            />
+          </div>
         </div>
       </div>
     )
