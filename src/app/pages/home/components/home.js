@@ -29,13 +29,11 @@ export default function Home({books, openBook, closeBook, openedBook}) {
         <Bookshelf title="Book reviews" key="1">
           {renderBook("dawn-of-the-dumb")}
           {renderBook("the-luminaries")}
-          {renderBook("our-super-adventure")}
           {renderDecoration("hangingCat")}
         </Bookshelf>
 
         <Bookshelf title="Coming next" key="2">
           {renderDecoration("cat2")}
-          {renderBook("dawn-of-the-dumb")}
           {renderBook("our-super-adventure")}
           {renderDecoration("cat1")}
         </Bookshelf>
