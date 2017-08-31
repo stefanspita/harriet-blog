@@ -1,7 +1,7 @@
 import React from "react"
 import R from "ramda"
 import PropTypes from "prop-types"
-// import Overlay from "../../../components/overlay"
+import Overlay from "../../../components/overlay"
 import AboutMe from "./about-me"
 import Bookshelf from "./bookshelf"
 import Book from "./book"
@@ -21,12 +21,12 @@ function renderDecoration(pictureId) {
   return (<Decoration key={pictureId} pictureId={pictureId} />)
 }
 
-export default function Home({books, openBook}) { // , bookIsOpen}) {
+export default function Home({books, openBook, bookIsOpen}) {
   const renderBook = getAndRenderBook(openBook, books)
-  // <Overlay show={bookIsOpen} />
   return (
     <div>
       <div className={styles.wall}>
+        <Overlay show={bookIsOpen} />
         <Bookshelf title="Book reviews" key="1">
           {renderBook("dawn-of-the-dumb")}
           {renderBook("the-luminaries")}
