@@ -22,10 +22,6 @@
     & > :nth-child(2) {
       margin-left: 35%;
     }
-
-    & > :nth-child(3) {
-      margin-right: 10%;
-    }
   }
 }
 

@@ -26,7 +26,6 @@ export default function Home({books, openBook, bookIsOpen}) {
   return (
     <div>
       <div className={styles.wall}>
-        <Overlay show={bookIsOpen} />
         <Bookshelf title="Book reviews" key="1">
           {renderBook("dawn-of-the-dumb")}
           {renderBook("the-luminaries")}
@@ -41,6 +40,7 @@ export default function Home({books, openBook, bookIsOpen}) {
           {renderDecoration("cat1")}
         </Bookshelf>
 
+        <Overlay show={bookIsOpen} />
       </div>
       <AboutMe />
     </div>
