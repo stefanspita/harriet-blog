@@ -18,8 +18,8 @@
   transition: opacity 0.5s linear;
 }
 
-/*@media (max-width: 800px) {
+@media (max-width: 800px) {
   .hangingCat {
     opacity: 0;
   }
-}*/
+}

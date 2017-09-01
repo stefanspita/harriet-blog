@@ -33,9 +33,7 @@ export default function Home({books, openBook, closeBook, openedBook}) {
         </Bookshelf>
 
         <Bookshelf title="Coming next" key="2">
-          {renderDecoration("cat2")}
           {renderBook("our-super-adventure")}
-          {renderDecoration("cat1")}
         </Bookshelf>
 
         <Overlay show={!!openedBook} handler={() => closeBook(openedBook)} />
