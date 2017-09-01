@@ -3,6 +3,7 @@ import React from "react"
 import R from "ramda"
 import PropTypes from "prop-types"
 import ReactDOM from "react-dom"
+import prefix from "inline-style-prefix-all"
 import styles from "./book.css"
 import theme from "../../../../theme"
 
@@ -12,13 +13,13 @@ function getBookSize({height, spineWidth}) {
 
 function getBookDepth(opened) {
   if (opened) return {transform: `translateZ(${theme.OPENED_BOOK_TRANSLATE_Z}px)`}
-  return {transform: "translateZ(0)"}
+  return prefix({transform: "translateZ(0px)"})
 }
 
 function getBookPosition(opened, bookSize, bookPosition, screen) {
   const xCoord = screen.width / 2 - bookSize.coverWidth / 2 - bookSize.spineWidth / 2 - bookPosition.left
   const yCoord = screen.height / 2 - bookSize.height / 2 - bookPosition.top
-  if (opened) return {transform: `translateX(${xCoord}px) translateY(${yCoord}px)`}
+  if (opened) return prefix({transform: `translateX(${xCoord}px) translateY(${yCoord}px)`})
   return {}
 }
 
@@ -28,10 +29,10 @@ function getSpineStyle({spineWidth, height}) {
 
 function getCoverStyle({coverWidth, height}) {
   const halfWidth = coverWidth / 2
-  return {
+  return prefix({
     height, width: coverWidth,
-    transform: `rotateY(90deg) translate3d(${halfWidth}px, 0, -${halfWidth}px)`,
-  }
+    transform: `rotateY(90deg) translate3d(${halfWidth}px, 0px, -${halfWidth}px)`,
+  })
 }
 
 export default class Book extends React.Component {
