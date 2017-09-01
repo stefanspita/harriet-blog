@@ -10,10 +10,15 @@ function getBookSize({height, spineWidth}) {
   return {height, width: spineWidth}
 }
 
+function getBookDepth(opened) {
+  if (opened) return {transform: `translateZ(${theme.OPENED_BOOK_TRANSLATE_Z}px)`}
+  return {transform: "translateZ(0)"}
+}
+
 function getBookPosition(opened, bookSize, bookPosition, screen) {
   const xCoord = screen.width / 2 - bookSize.coverWidth / 2 - bookSize.spineWidth / 2 - bookPosition.left
   const yCoord = screen.height / 2 - bookSize.height / 2 - bookPosition.top
-  if (opened) return {transform: `translate3d(${xCoord}px, ${yCoord}px, ${theme.OPENED_BOOK_TRANSLATE_Z}px)`}
+  if (opened) return {transform: `translateX(${xCoord}px) translateY(${yCoord}px)`}
   return {}
 }
 
@@ -63,26 +68,27 @@ export default class Book extends React.Component {
     const {pictures, size, open} = this.props
     const {position, screen} = this.state
     const bookClass = open ? styles.openedBook : styles.book
-    const rotateClass = open ? styles.openedRotateBook : styles.rotateBook
     const bookPosition = getBookPosition(open, size, position, screen)
     const bookSize = getBookSize(size)
 
     return (
       <div style={bookSize}>
         <div style={bookPosition} className={bookClass}>
-          <div className={rotateClass}>
-            <img
-              onClick={() => this.openBook()}
-              style={getSpineStyle(size)}
-              className={styles.spine}
-              src={pictures.root}
-            />
-            <img
-              onClick={() => this.openBook()}
-              style={getCoverStyle(size)}
-              className={styles.frontCover}
-              src={pictures.front}
-            />
+          <div style={getBookDepth(open)} className={styles.depthOfBook}>
+            <div className={styles.rotateBook}>
+              <img
+                onClick={() => this.openBook()}
+                style={getSpineStyle(size)}
+                className={styles.spine}
+                src={pictures.root}
+              />
+              <img
+                onClick={() => this.openBook()}
+                style={getCoverStyle(size)}
+                className={styles.frontCover}
+                src={pictures.front}
+              />
+            </div>
           </div>
         </div>
       </div>
