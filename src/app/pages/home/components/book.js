@@ -17,7 +17,7 @@ function getBookDepth(opened) {
 }
 
 function getBookPosition(opened, bookSize, bookPosition, screen) {
-  const xCoord = screen.width / 2 - bookSize.coverWidth / 2 - bookSize.spineWidth / 2 - bookPosition.left
+  const xCoord = screen.width / 2 - bookSize.coverWidth / 2 - bookPosition.left
   const yCoord = screen.height / 2 - bookSize.height / 2 - bookPosition.top
   if (opened) return prefix({transform: `translateX(${xCoord}px) translateY(${yCoord}px)`})
   return {}
@@ -68,13 +68,13 @@ export default class Book extends React.Component {
   render() {
     const {pictures, size, open} = this.props
     const {position, screen} = this.state
-    const bookClass = open ? styles.openedBook : styles.book
+    const bookWrapperClass = open ? styles.openedBook : styles.closedBook
     const bookPosition = getBookPosition(open, size, position, screen)
     const bookSize = getBookSize(size)
 
     return (
-      <div style={bookSize}>
-        <div style={bookPosition} className={bookClass}>
+      <div style={bookSize} className={bookWrapperClass}>
+        <div style={bookPosition} className={styles.book}>
           <div style={getBookDepth(open)} className={styles.depthOfBook}>
             <div className={styles.rotateBook}>
               <img
