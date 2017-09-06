@@ -1,6 +1,6 @@
 .book {
   transform-style: preserve-3d;
-  transition: transform 0.6s cubic-bezier(.57,.13,.49,.91);
+  transition: transform 0.4s cubic-bezier(.57,.13,.49,.91);
   transform: translate3d(0, 0, 1px);
 
   &:hover {
