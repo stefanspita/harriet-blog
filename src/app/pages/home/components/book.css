@@ -2,7 +2,7 @@
   .book {
     transform-style: preserve-3d;
     transition: transform 0.4s cubic-bezier(.57,.13,.49,.91);
-    transform: translate3d(0, 0, 1px);
+    transform: translate3d(0, 0, 1px); /* 1px on the Z axis because Firefox doesn't let the hover event through */
 
     &:hover {
       transform: translateZ(180px);
