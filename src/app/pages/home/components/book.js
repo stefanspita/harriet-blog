@@ -1,6 +1,6 @@
 /* eslint-disable react/no-find-dom-node */
 import React from "react"
-import R from "ramda"
+import {pick} from "ramda"
 import PropTypes from "prop-types"
 import ReactDOM from "react-dom"
 import prefix from "inline-style-prefix-all"
@@ -47,13 +47,13 @@ export default class Book extends React.Component {
     const element = ReactDOM.findDOMNode(this).getBoundingClientRect()
     this.setState({
       screen: {height: window.innerHeight, width: window.innerWidth},
-      position: R.pick(["top", "left"], element),
+      position: pick(["top", "left"], element),
     })
   }
 
   componentDidMount() {
     const element = ReactDOM.findDOMNode(this).getBoundingClientRect()
-    this.setState({position: R.pick(["top", "left"], element)})
+    this.setState({position: pick(["top", "left"], element)})
     this.updateScreenResize()
     window.addEventListener("resize", this.updateScreenResize)
   }

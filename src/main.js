@@ -6,13 +6,13 @@ import {Router, Route} from "react-router"
 import {createStore, combineReducers} from "redux"
 import {routerReducer} from "react-router-redux"
 import createHistory from "history/createBrowserHistory"
-import R from "ramda"
+import {merge} from "ramda"
 import App, {reducers} from "./app"
 import getStoreMiddleware from "./store-middleware"
 
 const history = createHistory()
 const store = createStore(
-  combineReducers(R.merge(reducers, {router: routerReducer})),
+  combineReducers(merge(reducers, {router: routerReducer})),
   getStoreMiddleware(history)
 )
 

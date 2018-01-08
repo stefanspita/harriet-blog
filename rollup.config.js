@@ -20,8 +20,7 @@ const cssExportMap = {}
 
 export default {
   input: "src/main.js",
-  output: {file: "build/main.min.js", format: "iife"},
-  sourcemap: "inline",
+  output: {file: "build/main.min.js", format: "iife", sourcemap: "inline"},
   plugins: [
     postcss({
       extensions: [".css"],
@@ -46,7 +45,7 @@ export default {
         "node_modules/symbol-observable/**",
       ],
       namedExports: {
-        "node_modules/react/react.js": [
+        "node_modules/react/index.js": [
           "Children", "Component", "createElement",
         ],
         "node_modules/redux-logger/dist/redux-logger.js": [

@@ -1,5 +1,5 @@
 import React from "react"
-import R from "ramda"
+import {curry, partial} from "ramda"
 import PropTypes from "prop-types"
 import Overlay from "../../../components/overlay"
 import AboutMe from "./about-me"
@@ -8,11 +8,11 @@ import Book from "./book"
 import Decoration from "./decoration"
 import styles from "./home.css"
 
-const getAndRenderBook = R.curry((openBook, books, id) => {
+const getAndRenderBook = curry((openBook, books, id) => {
   const book = books[id]
   return (<Book
     key={id}
-    openBook={R.partial(openBook, [id])}
+    openBook={partial(openBook, [id])}
     {...book}
   />)
 })

@@ -1,16 +1,16 @@
-import R from "ramda"
+import {compose, propEq, reduce, toPairs} from "ramda"
 
 function findOpenedBook(accumulator, book) {
-  if (R.propEq("open", true, book[1])) return book[0]
+  if (propEq("open", true, book[1])) return book[0]
   return accumulator
 }
 
 export default function selector(state) {
   return {
     books: state.home.books,
-    openedBook: R.compose(
-      R.reduce(findOpenedBook, undefined),
-      R.toPairs
+    openedBook: compose(
+      reduce(findOpenedBook, undefined),
+      toPairs
     )(state.home.books),
   }
 }
