@@ -4,6 +4,7 @@
   "description": "This repo can be used as a base for creating a website",
   "main": "build/main.min.js",
   "scripts": {
+    "start": "NODE_ENV=production rollup -c && node index.js",
     "lint": "eslint src/",
     "build": "rollup -c",
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -45,6 +46,7 @@
     "rollup-watch": "^4.0.0"
   },
   "dependencies": {
+    "express": "^4.16.2",
     "history": "^4.4.1",
     "inline-style-prefix-all": "^2.0.2",
     "prop-types": "^15.5.10",
