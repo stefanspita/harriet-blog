@@ -4,7 +4,7 @@
   "description": "This repo can be used as a base for creating a website",
   "main": "build/main.min.js",
   "scripts": {
-    "start": "NODE_ENV=production rollup -c && node index.js",
+    "start": "NODE_ENV=production ./node_modules/rollup/bin/rollup -c && node index.js",
     "lint": "eslint src/",
     "build": "rollup -c",
     "test": "echo \"Error: no test specified\" && exit 1",
