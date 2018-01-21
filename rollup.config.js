@@ -20,7 +20,7 @@ const cssExportMap = {}
 
 export default {
   input: "src/main.js",
-  output: {file: "build/main.min.js", format: "iife", sourcemap: "inline"},
+  output: {file: "public/build/main.min.js", format: "iife", sourcemap: "inline"},
   plugins: [
     postcss({
       extensions: [".css"],
@@ -75,10 +75,10 @@ export default {
     }),
     (process.env.NODE_ENV === "production" && uglify()),
     (process.env.NODE_ENV !== "production" && livereload({
-      watch: "build",
+      watch: "public/build",
     })),
     (process.env.NODE_ENV !== "production" && serve({
-      contentBase: "",
+      contentBase: "public",
       host: "localhost",
       port: 10001,
     })),
