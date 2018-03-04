@@ -1,43 +1,6 @@
 {
-  "env": {
-    "browser": true,
-    "es6": true
-  },
-  "globals": {
-    "ENV": true,
-    "process": true
-  },
-  "plugins": ["react"],
-  "extends": ["eslint:recommended", "plugin:react/recommended"],
-  "parserOptions": {
-    "sourceType": "module",
-    "ecmaFeatures": {
-      "jsx": true
-    }
-  },
+  "extends": "@mft/eslint-config-momentumft/react",
   "rules": {
-    "comma-dangle": [
-      "error",
-      "always-multiline"
-    ],
-    "indent": [
-      "error",
-      2
-    ],
-    "linebreak-style": [
-      "error",
-      "unix"
-    ],
-    "no-console": [
-      "warn"
-    ],
-    "quotes": [
-      "error",
-      "double"
-    ],
-    "semi": [
-      "error",
-      "never"
-    ]
+    "react/no-did-mount-set-state": 0
   }
 }

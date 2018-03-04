@@ -6,7 +6,7 @@ import styles from "./decoration.css"
 export default function Decoration({pictureId}) {
   return (
     <img
-      className={`${styles.decoration} ${styles[pictureId]}`} 
+      className={`${styles.decoration} ${styles[pictureId]}`}
       src={decorations[pictureId]}
     />
   )

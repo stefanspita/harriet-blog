@@ -8,7 +8,7 @@ export default function Bookshelf(props) {
       <div className={styles.books}>
         {props.children}
       </div>
-      <div className={styles.shelf}></div>
+      <div className={styles.shelf} />
     </div>
   )
 }

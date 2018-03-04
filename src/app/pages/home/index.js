@@ -1,5 +1,5 @@
 import reducer from "./reducer"
-import { connect } from "react-redux"
+import {connect} from "react-redux"
 import actions from "./actions"
 import selector from "./selector"
 import Home from "./components/home"
