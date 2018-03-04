@@ -14,28 +14,18 @@ import image from "rollup-plugin-img"
 import simplevars from "postcss-simple-vars"
 import nested from "postcss-nested"
 import cssnext from "postcss-cssnext"
-import postcssModules from "postcss-modules"
-const cssExportMap = {}
 
 export default {
   input: "src/main.js",
   output: {file: "public/build/main.min.js", format: "iife", sourcemap: "inline"},
   plugins: [
     postcss({
-      extensions: [".css"],
+      modules: true,
       plugins: [
         simplevars(),
         nested(),
         cssnext(),
-        postcssModules({
-          getJSON(id, exportTokens) {
-            cssExportMap[id] = exportTokens
-          },
-        }),
       ],
-      getExport(id) {
-        return cssExportMap[id]
-      },
     }),
     commonjs({
       include: ["node_modules/**"],
