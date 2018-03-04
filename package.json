@@ -10,7 +10,8 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "update-to-latest": "npm-check-updates -u",
     "check-for-updates": "npm-check-updates",
-    "watch": "rollup -c --watch"
+    "watch": "rollup -c --watch",
+    "prepush": "npm run lint"
   },
   "repository": {
     "type": "git",
@@ -55,5 +56,8 @@
     "rollup-plugin-serve": "^0.4.0",
     "rollup-plugin-uglify": "^3.0.0",
     "rollup-watch": "^4.0.0"
+  },
+  "devDependencies": {
+    "husky": "^0.14.3"
   }
 }
