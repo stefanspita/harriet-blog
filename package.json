@@ -43,7 +43,6 @@
     "rollup": "^0.54.1",
     "rollup-plugin-babel": "^3.0.2",
     "rollup-plugin-commonjs": "^8.0.2",
-    "rollup-plugin-eslint": "^4.0.0",
     "rollup-plugin-img": "^1.0.6",
     "rollup-plugin-livereload": "^0.6.0",
     "rollup-plugin-node-resolve": "^3.0.0",

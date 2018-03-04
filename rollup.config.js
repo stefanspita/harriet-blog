@@ -1,7 +1,6 @@
-/*eslint no-process-env: "off"*/
+/* eslint-disable no-process-env */
 // Rollup plugins
 import babel from "rollup-plugin-babel"
-import eslint from "rollup-plugin-eslint"
 import resolve from "rollup-plugin-node-resolve"
 import commonjs from "rollup-plugin-commonjs"
 import replace from "rollup-plugin-replace"
@@ -29,12 +28,12 @@ export default {
         nested(),
         cssnext(),
         postcssModules({
-          getJSON (id, exportTokens) {
+          getJSON(id, exportTokens) {
             cssExportMap[id] = exportTokens
           },
         }),
       ],
-      getExport (id) {
+      getExport(id) {
         return cssExportMap[id]
       },
     }),
@@ -57,14 +56,6 @@ export default {
       jsnext: true,
       main: true,
       browser: true,
-    }),
-    eslint({
-      exclude: [
-        "src/**/*.css",
-        "src/**/*.png",
-        "src/**/*.jpg",
-        "src/**/*.svg",
-      ],
     }),
     babel({
       exclude: "node_modules/**",
