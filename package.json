@@ -8,8 +8,6 @@
     "lint": "eslint src/",
     "build": "rollup -c",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "update-to-latest": "npm-check-updates -u",
-    "check-for-updates": "npm-check-updates",
     "watch": "rollup -c --watch",
     "prepush": "npm run lint"
   },
@@ -29,8 +27,6 @@
     "express": "^4.16.2",
     "history": "^4.4.1",
     "inline-style-prefix-all": "^2.0.2",
-    "npm-check-updates": "^2.11.1",
-    "npm-run-all": "^4.0.2",
     "postcss-cssnext": "^3.0.2",
     "postcss-modules": "^1.1.0",
     "postcss-nested": "^3.0.0",
