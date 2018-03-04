@@ -38,7 +38,7 @@
     "react-router-redux": "^4.0.7",
     "redux": "^3.6.0",
     "redux-logger": "^3.0.6",
-    "rollup": "^0.54.1",
+    "rollup": "^0.56.3",
     "rollup-plugin-babel": "^3.0.2",
     "rollup-plugin-commonjs": "^8.0.2",
     "rollup-plugin-img": "^1.0.6",
